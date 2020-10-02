@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-      run: make -f Makefile
+      run: make EXTRA_LDFLAGS="-lmad -lasound -lvorbisidec -logg"
     - uses: actions/upload-artifact@v2
       with:
         name: artifacts-bittboy
@@ -26,7 +26,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-      run: make -f Makefile INCLUDES=-DVERSION_POWKIDDY
+      run: make EXTRA_LDFLAGS="-lmad -lasound -lvorbisidec -logg" INCLUDES=-DVERSION_POWKIDDY
     - uses: actions/upload-artifact@v2
       with:
         name: artifacts-powkiddy
@@ -40,7 +40,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-      run: make -f Makefile INCLUDES=-DVERSION_POCKETGO
+      run: make EXTRA_LDFLAGS="-lmad -lasound -lvorbisidec -logg" INCLUDES=-DVERSION_POCKETGO
     - uses: actions/upload-artifact@v2
       with:
         name: artifacts-pocketgo
@@ -54,7 +54,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-      run: make -f Makefile
+      run: make
     - uses: actions/upload-artifact@v2
       with:
         name: artifacts-retrofw
@@ -68,7 +68,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: build
-      run: make -f Makefile
+      run: make
     - uses: actions/upload-artifact@v2
       with:
         name: artifacts-gcw0
