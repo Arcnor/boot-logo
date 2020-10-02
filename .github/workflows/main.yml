@@ -15,7 +15,7 @@ jobs:
       run: make -f Makefile
     - uses: actions/upload-artifact@v2
       with:
-        name: artifacts
+        name: artifacts-bittboy
         path: boot-logo
 
   build-powkiddy:
@@ -29,7 +29,7 @@ jobs:
       run: make -f Makefile INCLUDES=-DVERSION_POWKIDDY
     - uses: actions/upload-artifact@v2
       with:
-        name: artifacts
+        name: artifacts-powkiddy
         path: boot-logo
 
   build-pocketgo:
@@ -43,7 +43,7 @@ jobs:
       run: make -f Makefile INCLUDES=-DVERSION_POCKETGO
     - uses: actions/upload-artifact@v2
       with:
-        name: artifacts
+        name: artifacts-pocketgo
         path: boot-logo
 
   build-retrofw:
@@ -57,7 +57,7 @@ jobs:
       run: make -f Makefile
     - uses: actions/upload-artifact@v2
       with:
-        name: artifacts
+        name: artifacts-retrofw
         path: boot-logo
 
   build-gcw0:
@@ -71,5 +71,5 @@ jobs:
       run: make -f Makefile
     - uses: actions/upload-artifact@v2
       with:
-        name: artifacts
+        name: artifacts-gcw0
         path: boot-logo
