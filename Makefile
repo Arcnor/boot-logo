@@ -18,7 +18,7 @@ OUTPUTNAME = boot-logo
 override DEFINES += -DHAVE_STDINT_H
 INCLUDES = -Iinclude $(SDL_CFLAGS)
 OPT_FLAGS  = -Ofast -fdata-sections -fdata-sections -fno-common -fno-PIC -flto
-EXTRA_LDFLAGS = -lasound -lmikmod -lmodplug -Wl,--as-needed -Wl,--gc-sections -flto -s
+EXTRA_LDFLAGS = -Wl,--as-needed -Wl,--gc-sections -flto -s
 
 CFLAGS = $(DEFINES) $(INCLUDES) $(OPT_FLAGS) -std=gnu11 
 CXXFLAGS = $(DEFINES) $(INCLUDES) $(OPT_FLAGS) -std=gnu++11 
