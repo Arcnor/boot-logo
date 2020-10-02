@@ -1,0 +1,75 @@
+name: Miyoo
+
+on: [push, pull_request]
+
+# TODO: Use composites?
+jobs:
+  build-bittboy:
+    runs-on: ubuntu-latest
+    container:
+      image: arcnor/toolchain-bittboy:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: make -f Makefile
+    - uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: boot-logo
+
+  build-powkiddy:
+    runs-on: ubuntu-latest
+    container:
+      image: arcnor/toolchain-bittboy:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: make -f Makefile INCLUDES=-DVERSION_POWKIDDY
+    - uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: boot-logo
+
+  build-pocketgo:
+    runs-on: ubuntu-latest
+    container:
+      image: arcnor/toolchain-bittboy:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: make -f Makefile INCLUDES=-DVERSION_POCKETGO
+    - uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: boot-logo
+
+  build-retrofw:
+    runs-on: ubuntu-latest
+    container:
+      image: arcnor/toolchain-retrofw:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: make -f Makefile
+    - uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: boot-logo
+
+  build-gcw0:
+    runs-on: ubuntu-latest
+    container:
+      image: arcnor/toolchain-gcw0:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: build
+      run: make -f Makefile
+    - uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: boot-logo
